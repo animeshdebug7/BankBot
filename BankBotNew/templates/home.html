@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged In</title>
+</head>
+<body>
+    <form class="box">
+    <h1>Home Page</h1>
+    <a href="{{url_for('login')}}">LOGIN</a><br>
+    <a href="{{url_for('register')}}">SIGN UP</a><br>
+    </form>
+    <script>!(function () {
+        let e = document.createElement("script"),
+          t = document.head || document.getElementsByTagName("head")[0];
+        (e.src =
+          "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.0/lib/index.js"),
+          // Replace 1.x.x with the version that you want
+          (e.async = !0),
+          (e.onload = () => {
+            window.WebChat.default(
+              {
+                initPayLoad: '/greet',
+                customData: { language: "en" },
+                socketUrl: "http://localhost:5005",
+                // add other props here
+              },
+              null
+            );
+          }),
+          t.insertBefore(e, t.firstChild);
+      })();
+      </script>
+</body>
+<style>
+body 
+    {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #192a56;    
+    }
+.box{
+  width: 300px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #273c75;
+  text-align: center;
+}
+.box h1{
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+a{
+  border:0;
+  background: none;
+  display: block;
+  /* margin: 20px auto; */
+  text-align: center;
+  border: 2px solid red;
+  padding: 20px 20px;
+  outline: none;
+  color: white;
+  /* border-radius: 24px; */
+  transition: 0.25s;
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover
+    {
+    background: red;
+    }
+
+</style>
+</html>
