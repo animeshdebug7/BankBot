@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div id="div1">
+            <h1>Hi, {{R_index0}}</h1>
+            <h1>{{ y }}</h1>
+        </div>
+        <div id="div2">
+            <h1>TRANSACTION HISTORY</h1>
+            <div class="scrollit">
+                <table border=5>  
+                    <thead>  
+                        <td>TRANSACTION</td>  
+                        <td>BALANCE</td>  
+                        <td>TYPE</td>  
+                        <td>DATE</td>  
+                    </thead>  
+                    
+                    {% for row in results2 %}  
+                    
+                        <tr>  
+                            <td>{{row['transactions']}}</td>  
+                            <td>{{row['balance']}}</td>  
+                            <td>{{row["T_type"]}}</td>  
+                            <td>{{row["T_date"]}}</td>  
+                        </tr>  
+                    
+                    {% endfor %}  
+                </table>
+            </div>
+    
+            <div class="2btns">
+            <button class = 'btn1' onclick="myFunction()">VIEW BALANCE</button>
+                <div id="myDIV">
+                {{ balance }}
+                </div>
+            <a class="button" href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        </div>
+    </div>
+    <div id="div3">
+        <img src='static/chart.jpg' class='div_img' alt="">
+    </div>
+</body>
+<script>
+    function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+    x.style.display = "block";
+    } else {
+    x.style.display = "none";
+    }
+    }
+</script>
+<style>
+    body
+    {
+        background-color: #192a56;
+    }
+
+    #container
+    {
+        float: left;
+        width: 40%;
+    }
+
+    #div1
+    {
+        background-color: cornflowerblue;
+        /* width: 40%; */
+        height: 150px;
+        margin-right: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: bold;
+        color: #192a56;
+        vertical-align: baseline;
+    }
+    #div2
+    {
+        background-color: cornflowerblue;
+        /* width: 40%; */
+        height: 550px;
+        margin-top: 10px;
+        margin-right: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        text-align: center;
+        align-items: center;
+        color: #192a56;
+
+    }
+    /* #div1
+    {
+        background-color: greenyellow;
+        width: 40%;
+        height: 250px;
+        margin-right: 10px;
+        /* float: left; */
+    /* }
+
+    #div2
+    {
+        background-color: chocolate;
+        width: 40%;
+        height: 450px;
+        margin-top: 10px;
+        margin-right: 10px;
+        float: left;
+    } */ 
+
+    #div3
+    {
+        display: flex;
+        /* align-items: top; */
+        /* background-color: cornflowerblue; */
+        width: 60%;
+        height: 710px;
+        float: right;
+        margin-top: 0px;
+        /* background-image: url(chart.png);
+        background-size: cover; */
+        /* content:url(chart.png); */
+    }
+
+    .div_img
+    {
+        width: 100%;
+        height: 100%;
+        /* background-image: url(./chart.jpg); */
+        /* background-size: cover; */
+    }
+    table, th, td 
+    {
+        border: 1px solid black;
+        width: 100%;
+        border-radius: 3px;
+    }
+    .button
+    {
+        display: block;
+        width: 135px;
+        height: 25px;
+        background: none;
+        padding: 10px;
+        border: 2px solid red;
+        text-align: center;
+        color: white;
+        line-height: 25px;
+        position: relative;
+        top: 20%;
+        left: 37%;
+        transition: 0.25s;
+        text-decoration: none;
+    }
+
+    .button:hover
+    {
+    background-color: red;
+    }
+    .btn1
+    {
+        display: block;
+        width: 160px;
+        height: 50px;
+        background: none;
+        padding: 10px;
+        border: 2px solid blue;
+        text-align: center;
+        font-style: bold;
+        color: white;
+        line-height: 25px;
+        top: 10%;
+        left: 37%;
+        position: relative;
+        transition: 0.25s;
+        text-decoration: none;
+    }
+    .btn1:hover
+    {
+        background-color: blue;
+    }
+    .scrollit 
+    {
+        overflow:scroll;
+        height:200px;
+        overflow-x: hidden;
+
+    }
+    
+    *::-webkit-scrollbar 
+    {
+        width: 12px;
+    }
+
+    *::-webkit-scrollbar-track 
+    {
+        background: #192a56;
+    }
+
+    *::-webkit-scrollbar-thumb 
+    {
+        background-color: cornflowerblue;
+        border-radius: 20px;
+        border: 3px solid #192a56;
+    }
+/* 
+    #2btns
+    {
+        display: flex;
+        justify-content: space-around;
+        margin: 60px auto;
+    } */
+</style>
+</html>
