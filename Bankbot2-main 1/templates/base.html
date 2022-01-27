@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+</head>
+<body>
+<main>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3">
+        <div id="scroll-div">
+            <div id="scroll-object">
+                <pre>
+                Q How can I stop a cheque payment?
+                Ans It can be done through Branch , IVR, Netbanking, SMS Banking,
+                Mobile Banking and also by calling at Contact center.
+
+                Q Is there any charges applicable for initiating cheque stop payment?
+                Ans Cheque stop payment can be initiated free of charges through 
+                NetBanking, SMS, Mobile as well through IVR but would be charged if 
+                done through Branch or by speaking to Contact Center officer. 
+
+                Q How long will it take to update a change of address/details?
+                Ans It takes 7 Working days for bank to process the request from 
+                the time complete request is given.
+
+                Q How can I upgrade my account type?
+                Ans Kindly place a request at the nearest branch.
+
+                Q How to place a request for a new cheque book?
+                Ans You may place the reqeust through branch ,ATM , IVR,Netbanking, 
+                Mobile Banking.
+                
+                Q How can I place a request for account statement?
+                Ans You may place the request through netbanking or by calling 
+                at contact center or by visiting the branch
+                
+                Q I had set auto pay option for my postpaid bill will this 
+                continue or should I add the biller
+                again?
+                Ans You may add the biller again.
+
+                Q How will I know whether my Debit Card is an EMV Chip Debit Card?
+                Ans. You can identify your Debit Card as an EMV Chip Debit 
+                Card if there is a Chip located on the face (center-left position) 
+                of the Debit Card.
+                
+                Q Will there be any charge for issuance of a replacement EMV Chip Debit Card.?
+                Ans. EMV Chip Debit Card issued as a replacement of your blocked 
+                Magstripe Debit Card, will be completely free of charge.
+                
+                Q I want to continue paying my EMIs without availing the deferment. What is the
+                process to Opt-Out?
+                Ans In that case, no action is required by you. You may continue to pay as usual. The
+                loan will continue as per the original repayment schedule.
+                </pre>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="static/images/rupee.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header" style="color: rgb(255, 217, 0);">BANK BOT</h4>
+                    <p class="chatbox__description--header"></p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+    <input style="background-color: #576574; color: rgb(255, 217, 0);" type="text" placeholder="Write a message...">
+                <button class = "chatbox__send--footer send__button" style="color: rgb(255, 217, 0); font-weight: bold;">SEND</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='images/chaticon2.png') }}"></button>
+        </div>
+    </div>
+</div>
+
+    
+ <!-- <script>
+            $SCRIPT_ROOT = {{ request.script_root|tojson }};
+         </script>  -->
+         <script type ="text/javascript" src = "{{ url_for('static', filename='app.js') }}"> </script>
+</body>
+
+
+<style>
+
+*{margin: 0; padding: 0; 
+box-sizing: border-box; text-align: center; 
+}
+
+main{
+ width: 92%; margin: 25px auto; 
+ border:none;
+ display: grid; color: white;
+ grid-template-rows: 200px 100px 150px 200px;
+ grid-template-columns: repeat(3, 350px) 300px;
+ grid-gap: 20px;
+ 
+}
+
+ #div1{ background-color: #ff4757; 
+  grid-column: 2/-1;
+  object-fit: contain;
+  background-image: url("static/images/hor.png");
+  background-size: contain;
+ }
+ #div2{ background-color: #2ed573;
+  grid-row: 1/-1;
+  background-image: url("static/images/ver.png");
+  background-size: contain;
+ }
+ #div3{ background-color: cornflowerblue; 
+  grid-column: 2/-1;
+  grid-row: 2/-1;
+}
+
+#scroll-div
+{
+    width: 900px;
+    height: 100%;
+    overflow-wrap: normal;
+    overflow-y: scroll;
+    text-align: left;
+}
+#scroll-object
+{
+    padding: 20px;
+    font-size: 20px;
+    text-align: left;
+}
+ /* .div4{ background-color: #5352ed; }
+ .div5{ background-color: #2f3542; 
+  grid-row:2/4; grid-column: 4/5;
+ }
+ .div6{ background-color: #ffa502; 
+  grid-column: 1/ 4;
+ }
+ .div7{ background-color: #00d2d3;
+  grid-column: 1/-1;
+  } */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; */
+    }
+
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 100%;
+    background: #353b48;
+    background-color: #192a56;
+
+}
+
+*, html {
+    --primaryGradient: linear-gradient(93.12deg, #2f3640 0.52%, #2f3640 100%);
+    --secondaryGradient: linear-gradient(268.91deg, #2f3640 -2.14%, #2f3640 99.69%);
+    --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
+    --primary: #2d3436;
+}
+
+/* CHATBOX
+=============== */
+.chatbox {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+}
+
+/* CONTENT IS CLOSE */
+.chatbox__support {
+    display: flex;
+    flex-direction: column;
+    background: #353b48;
+    width: 300px;
+    height: 350px;
+    z-index: -123456;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+/* CONTENT ISOPEN */
+.chatbox--active {
+    transform: translateY(-40px);
+    z-index: 123456;
+    opacity: 1;
+
+}
+
+/* BUTTON */
+.chatbox__button {
+    text-align: right;
+}
+
+.send__button {
+    padding: 6px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* HEADER */
+.chatbox__header {
+    position: sticky;
+    top: 0;
+    background: orange;
+}
+
+/* MESSAGES */
+.chatbox__messages {
+    margin-top: auto;
+    display: flex;
+    /* overflow: hidden; */
+    overflow-y: scroll;
+    flex-direction: column-reverse;
+}
+
+.messages__item {
+    background: orange;
+    max-width: 60.6%;
+    width: fit-content;
+}
+
+.messages__item--operator {
+    margin-left: auto;
+}
+
+.messages__item--visitor {
+    margin-right: auto;
+}
+
+/* FOOTER */
+.chatbox__footer {
+    position: sticky;
+    bottom: 0;
+}
+
+.chatbox__support {
+    background: #576574;
+    height: 450px;
+    width: 350px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* HEADER */
+.chatbox__header {
+    background: var(--primaryGradient);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; */
+    box-shadow: var(--primaryBoxShadow);
+}
+
+.chatbox__image--header {
+    margin-right: 10px;
+}
+
+.chatbox__heading--header {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.chatbox__description--header {
+    font-size: .9rem;
+    color: white;
+}
+
+/* Messages */
+.chatbox__messages {
+    padding: 0 20px;
+}
+
+.messages__item {
+    margin-top: 10px;
+    background: rgb(255, 217, 0);
+    padding: 8px 12px;
+    max-width: 70%;
+}
+
+.messages__item--visitor,
+.messages__item--typing {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.messages__item--operator {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: var(--primary);
+    color: white;
+}
+
+/* FOOTER */
+.chatbox__footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    background: var(--secondaryGradient);
+    box-shadow: var(--secondaryBoxShadow);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 20px;
+}
+
+.chatbox__footer input {
+    width: 80%;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 30px;
+    text-align: left;
+}
+
+.chatbox__send--footer {
+    color: rgb(255, 217, 0);
+}
+
+.chatbox__button button,
+.chatbox__button button:focus,
+.chatbox__button button:visited {
+    padding: 10px;
+    background: rgb(255, 217, 0);
+    border: none;
+    outline: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+::placeholder 
+    {
+        color: rgb(255, 217, 0);
+        opacity: 1;
+    }
+
+*::-webkit-scrollbar 
+    {
+        display: none;
+    }
+
+</style>
+</html>
