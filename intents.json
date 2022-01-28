@@ -1,0 +1,192 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hey :-)",
+        "Hello",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "See you later, thanks for visiting",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    },
+    {
+      "tag": "loan1",
+      "patterns": [
+        "How do I check if I am eligible to apply for a loan?",
+        "What are the documents required to apply for loan?",
+        
+        "Eligibility for loan",
+        "Documents required for loan"
+      ],
+      "responses": [
+        "The following people are eligible to apply for a Personal Loan: 1.Employees of private limited companies, employees from public sector undertakings, including central, state and local bodies 2.Individuals between 21 and 60 years of age 3.Individuals who have had a job for at least 2 years, with a minimum of 1 year with the current employer 4.Those who earn a minimum of 25,000 net income per month.|| Documents required: 1.Identity proof (copy of passport/voter ID card/driving license/Aadhaar) 2.Address proof (copy of passport/voter ID card/driving license/Aadhaar) 3.Bank statement of previous 3 months (Passbook of previous 6 months) 4.Two latest salary slip/current dated salary certificate with the latest Form 16. "
+      ]
+    },
+    {
+      "tag": "loan2",
+      "patterns": [
+        "How long do I have to repay the loan?",
+        "What is the maximum sum of money that I can borrow from a bank?",
+        "How many times my salary can I borrow for a mortgage?",
+        "How much money can I borrow from bank?",
+        "How many times my salary can I borrow for a loan?",
+        "how much money can I withdraw"
+      ],
+      "responses": [
+        "Generally, you will get up to a maximum number of 10 years to repay the loan.The higher the amount, the longer you get to repay.|| The amount of money you can put towards a mortgage repayment depends on both your salary and your spending. In general, a good rule of thumb is the 28% rule meaning mortgage repayments should be no more than 28% of your monthly income."
+      ]
+    },
+    {
+      "tag": "loan3",
+      "patterns": [
+        "Education Loan",
+        "Car Loan",
+        "Home Loan",
+        "Personal Loan"
+      ],
+      "responses": [
+        "Your credit score and your income will determine how much you qualify to borrow and at what interest rate."
+      ]
+    },
+    {
+      "tag": "general",
+      "patterns": [
+        "What does borrowing capacity mean?",
+        "Borrowing capacity",
+        "What is borrowing capacity?"
+        
+        
+      ],
+      "responses": [
+        "Borrowing capacity is the sum of money someone is able to borrow from a lender. This amount varies for each individual according to their unique circumstances. For more information please visit the nearest branch or Contact Us."
+      ]
+    },
+    {
+      "tag": "general1",
+      "patterns": [
+        
+        "What is a Processing Fee?",
+        "Processing Fee?",
+        "What is Processing Fees"
+        
+      ],
+      "responses": [
+        "Processing Fee means the charges that have to be paid by the applicant institution to the Commission along with the application for processing such application.  "
+      ]
+    },
+    {
+      "tag": "general2",
+      "patterns": [
+        
+        "What is Credit Score?",
+        "Why is it important to have a good credit score?",
+        "A credit score"
+        
+      ],
+      "responses": [
+        "If you have a good credit score, the chances of you being offered the loan at a low interest rate are quite high. Your credit score indicates your creditworthiness and your repayment ability. If you are looking to apply for a personal loan, it is advisable to maintain a credit score that is over 750. Individuals with a very low credit score may be denied a loan altogether, while those with a moderate credit score may be offered a personal loan, but at a high interest rate. "
+      ]
+    },
+    {
+      "tag": "general3",
+      "patterns": [
+        
+        "What is Moratorium?",
+        "What is meant by Moratorium?",
+        "A Moratorium?"
+      ],
+      "responses": [
+        "Moratorium is temporary postponement of payment of EMIs/ Instalments for a period. "
+      ]
+    },
+    {
+      "tag": "details",
+      "patterns": [
+        "What are my previous transaction details?",
+        "What is my withdrawal status?",
+        "What is my account balance?",
+        "What are my account details?",
+        "Previous Bank Statements"
+      ],
+      "responses": [
+        "To access information related to Account Details please login with your bankID. You may place the request through branch ,ATM ,Netbanking, Mobile Banking. "
+      ]
+    },
+    {
+      "tag": "card",
+      "patterns": [
+        "How to place a request for a new cheque book?",
+        "How to get new debit or credit card?",
+        "I want a new debit card",
+        "I want a new credit card",
+        "how can I upgrade my account type",
+        "change my account type"
+      ],
+      "responses": [
+        "Please visit our nearest branch or contact us. "
+      ]
+    },
+    {
+      "tag": "security",
+      "patterns": [
+        "What to do if I see a payment in my transactions list that I did not make?",
+        "Will I get notified if unusual activity takes place related to my account?",
+        "What if someone tries to change my banking details?",
+        "Fraudulent activity in my account",
+        "Unusual changes in my bank account"
+      ],
+      "responses": [
+        "Our Team will soon get in contact with you and solve the problem as soon as possible. You will be notified via the contact details provided by you as soon as any unusual activity detected by us. The account details cannot be changed unless OTP is provided which would be sent to your mail-id"
+      ]
+    },
+    {
+      "tag": "transfer",
+      "patterns": [
+        "How long does it take until the funds reach my bank account?",
+        "How long does it take for a transaction to complete?"
+        
+      ],
+      "responses": [
+        "Awaiting transactions take three to five days to process."
+      ]
+    },
+    {
+      "tag": "policy",
+      "patterns": [
+        "What interest rates are provided by your bank?",
+        "What makes your bank policies special compared to other banks?",
+        "What are your bank policies?",
+        "Want to know more about your bank",
+        "Information related to your bank",
+        "Contact Details",
+        "How can I access the contact details?",
+        "Bank Location"
+      ],
+      "responses": [
+        "To access more information related to our bank including the policies, contact details, location and interest rates, please visit our website."
+      ]
+    }
+  ]
+}

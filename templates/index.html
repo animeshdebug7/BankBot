@@ -1,0 +1,537 @@
+<!-- 
+<html>
+    <body>
+        
+          <a class="button"href= "{{url_for('logout')}}">LOGOUT</a><br>
+          <h1 align ="center">Welcome {{R_index0}} !</h1> <br>
+          <h1 align ="center">Details {{R_index1}}!</h1>
+          <h1 align ="center">Details {{R_index2}}!</h1>
+          <h1 align ="center">Details {{R_index3}}!</h1>
+          <h1 align ="center">Details {{R_index4}}!</h1>
+          <h1 align ="center">Details {{R_index5}}!</h1>
+          <h1 align ="center">Details {{R_index6}}!</h1>
+        
+        
+
+
+    </body>
+<style>
+body 
+ 
+{
+    background-color: #273c75;
+    font-family: sans-serif;
+}
+
+.button
+  {
+    display: block;
+    width: 135px;
+    height: 25px;
+    background: none;
+    padding: 10px;
+    border: 2px solid rgb(67, 223, 243);
+    text-align: center;
+    color: white;
+    line-height: 25px;
+    position: relative;
+    top: 50%;
+    left: 45%;
+    transition: 0.25s;
+    text-decoration: none;
+}
+
+.button:hover
+  {
+  background-color: rgb(67, 223, 243);
+  }
+</style>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="container">
+        <div id="div1">
+            <h1>Hi, {{R_index0}}</h1>
+            <h1>{{ y }}</h1>
+        </div>
+        <div id="div2">
+            <h1>TRANSACTION HISTORY</h1>
+            <div class="scrollit">
+                <table border=5>  
+                    <thead>  
+                        <td>Date</td>  
+                        <td>Transaction</td>  
+                        <td>Transaction_Amount</td>  
+                        <td>Transaction_Type</td>
+                        <td>Balance</td>  
+                    </thead>  
+                    
+                    {% for row in results2 %}  
+                    
+                        <tr>  
+                            <td>{{row['TDate']}}</td>  
+                            <td>{{row['Trans']}}</td>  
+                            <td>{{row["Amount"]}}</td>  
+                            <td>{{row["Trans_Type"]}}</td>
+                            <td>{{row["Balance"]}}</td>  
+                        </tr>  
+                    
+                    {% endfor %}  
+                </table>
+            </div>
+    
+            <div class="2btns">
+            <button class = 'btn1' onclick="myFunction()">VIEW BALANCE</button>
+                <div id="myDIV">
+                {{ balance }}
+                </div>
+            <a class="button" href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        </div>
+    </div>
+    <div id="div3">
+        <img src='static/chart.jpg' class='div_img' alt="">
+    </div>
+</body>
+<script>
+    function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+    x.style.display = "block";
+    } else {
+    x.style.display = "none";
+    }
+    }
+</script>
+
+
+<div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="static/images/rupee.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header" style="color: rgb(255, 217, 0);">BANK BOT</h4>
+                    <p class="chatbox__description--header"></p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+    <input style="background-color: #576574; color: rgb(255, 217, 0);" type="text" placeholder="Write a message...">
+                <button class = "chatbox__send--footer send__button" style="color: rgb(255, 217, 0); font-weight: bold;">SEND</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='images/chaticon2.png') }}"></button>
+        </div>
+    </div>
+</div>
+
+    <script type ="text/javascript" src = "{{ url_for('static', filename='app.js') }}"> </script>
+</body>
+
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 100%;
+    background: #F1F1F1;
+}
+
+*, html {
+    --primaryGradient: linear-gradient(93.12deg, #2f3640 0.52%, #2f3640 100%);
+    --secondaryGradient: linear-gradient(268.91deg, #2f3640 -2.14%, #2f3640 99.69%);
+    --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
+    --primary: #2d3436;
+}
+
+/* CHATBOX
+=============== */
+.chatbox {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+}
+
+/* CONTENT IS CLOSE */
+.chatbox__support {
+    display: flex;
+    flex-direction: column;
+    background: #353b48;
+    width: 300px;
+    height: 350px;
+    z-index: -123456;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+/* CONTENT ISOPEN */
+.chatbox--active {
+    transform: translateY(-40px);
+    z-index: 123456;
+    opacity: 1;
+
+}
+
+/* BUTTON */
+.chatbox__button {
+    text-align: right;
+}
+
+.send__button {
+    padding: 6px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* HEADER */
+.chatbox__header {
+    position: sticky;
+    top: 0;
+    background: orange;
+}
+
+/* MESSAGES */
+.chatbox__messages {
+    margin-top: auto;
+    display: flex;
+    /* overflow: hidden; */
+    overflow-y: scroll;
+    flex-direction: column-reverse;
+}
+
+.messages__item {
+    background: orange;
+    max-width: 60.6%;
+    width: fit-content;
+}
+
+.messages__item--operator {
+    margin-left: auto;
+}
+
+.messages__item--visitor {
+    margin-right: auto;
+}
+
+/* FOOTER */
+.chatbox__footer {
+    position: sticky;
+    bottom: 0;
+}
+
+.chatbox__support {
+    background: #576574;
+    height: 450px;
+    width: 350px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* HEADER */
+.chatbox__header {
+    background: var(--primaryGradient);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; */
+    box-shadow: var(--primaryBoxShadow);
+}
+
+.chatbox__image--header {
+    margin-right: 10px;
+}
+
+.chatbox__heading--header {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.chatbox__description--header {
+    font-size: .9rem;
+    color: white;
+}
+
+/* Messages */
+.chatbox__messages {
+    padding: 0 20px;
+}
+
+.messages__item {
+    margin-top: 10px;
+    background: rgb(255, 217, 0);
+    padding: 8px 12px;
+    max-width: 70%;
+}
+
+.messages__item--visitor,
+.messages__item--typing {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.messages__item--operator {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: var(--primary);
+    color: white;
+}
+
+/* FOOTER */
+.chatbox__footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    background: var(--secondaryGradient);
+    box-shadow: var(--secondaryBoxShadow);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 20px;
+}
+
+.chatbox__footer input {
+    width: 80%;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 30px;
+    text-align: left;
+}
+
+.chatbox__send--footer {
+    color: rgb(255, 217, 0);
+}
+
+.chatbox__button button,
+.chatbox__button button:focus,
+.chatbox__button button:visited {
+    padding: 10px;
+    background: rgb(255, 217, 0);
+    border: none;
+    outline: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+::placeholder 
+    {
+        color: rgb(255, 217, 0);
+        opacity: 1;
+    }
+
+*::-webkit-scrollbar 
+    {
+        display: none;
+    }
+
+
+
+
+
+
+
+    body
+    {
+        background-color: #192a56;
+    }
+
+    #container
+    {
+        float: left;
+        width: 40%;
+    }
+
+    #div1
+    {
+        background-color: cornflowerblue;
+        /* width: 40%; */
+        height: 150px;
+        margin-right: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: bold;
+        color: #192a56;
+        vertical-align: baseline;
+    }
+    #div2
+    {
+        background-color: cornflowerblue;
+        /* width: 40%; */
+        height: 550px;
+        margin-top: 10px;
+        margin-right: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        text-align: center;
+        align-items: center;
+        color: #192a56;
+
+    }
+    /* #div1
+    {
+        background-color: greenyellow;
+        width: 40%;
+        height: 250px;
+        margin-right: 10px;
+        /* float: left; */
+    /* }
+
+    #div2
+    {
+        background-color: chocolate;
+        width: 40%;
+        height: 450px;
+        margin-top: 10px;
+        margin-right: 10px;
+        float: left;
+    } */ 
+
+    #div3
+    {
+        display: flex;
+        /* align-items: top; */
+        /* background-color: cornflowerblue; */
+        width: 60%;
+        height: 710px;
+        float: right;
+        margin-top: 0px;
+        /* background-image: url(chart.png);
+        background-size: cover; */
+        /* content:url(chart.png); */
+    }
+
+    .div_img
+    {
+        width: 100%;
+        height: 100%;
+        /* background-image: url(./chart.jpg); */
+        /* background-size: cover; */
+    }
+    table, th, td 
+    {
+        border: 1px solid black;
+        width: 100%;
+        border-radius: 3px;
+    }
+    .button
+    {
+        display: block;
+        width: 135px;
+        height: 45px;
+        background: none;
+        padding: 10px;
+        border: 2px solid red;
+        text-align: center;
+        color: white;
+        line-height: 25px;
+        position: relative;
+        top: 20%;
+        left: 37%;
+        transition: 0.25s;
+        text-decoration: none;
+    }
+
+    .button:hover
+    {
+    background-color: red;
+    }
+    .btn1
+    {
+        display: block;
+        width: 160px;
+        height: 50px;
+        background: none;
+        padding: 10px;
+        border: 2px solid blue;
+        text-align: center;
+        font-style: bold;
+        color: white;
+        line-height: 25px;
+        top: 10%;
+        left: 37%;
+        position: relative;
+        transition: 0.25s;
+        text-decoration: none;
+    }
+    .btn1:hover
+    {
+        background-color: blue;
+    }
+    .scrollit 
+    {
+        /* overflow:scroll; */
+        height:350px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+    }
+    
+    *::-webkit-scrollbar 
+    {
+        width: 12px;
+    }
+
+    *::-webkit-scrollbar-track 
+    {
+        background: #192a56;
+    }
+
+    *::-webkit-scrollbar-thumb 
+    {
+        background-color: cornflowerblue;
+        border-radius: 20px;
+        border: 3px solid #192a56;
+    }
+/* 
+    #2btns
+    {
+        display: flex;
+        justify-content: space-around;
+        margin: 60px auto;
+    } */
+</style>
+</html>
+
