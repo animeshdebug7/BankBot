@@ -32,9 +32,9 @@ scipy==1.7.3
 seaborn==0.11.2
 six==1.16.0
 SQLAlchemy==1.4.31
-torch==1.10.2+cpu
-torchaudio==0.10.2+cpu
-torchvision==0.11.3+cpu
+torch==1.10.2
+torchaudio==0.10.2
+torchvision==0.11.3
 tqdm==4.62.3
 typing_extensions==4.0.1
 Werkzeug==2.0.2
