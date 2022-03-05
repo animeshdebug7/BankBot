@@ -31,6 +31,7 @@ df = pd.read_csv('Transaction_Data2.csv')
 df.Date = pd.to_datetime(df.Date)
 
 app = Flask(__name__)
+CORS(app)
 
 def connect_db():
     sql = sqlite3.connect('./Details_new.db')
