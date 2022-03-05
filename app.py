@@ -204,7 +204,6 @@ def home():
     return render_template('home.html')
 
 @app.route("/predict", methods = ['POST','GET'])
-@cross_origin()
 def predict():
     text = request.get_json().get("message")
     response = get_response(text)
