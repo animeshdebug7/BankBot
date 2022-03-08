@@ -31,7 +31,7 @@ df = pd.read_csv('Transaction_Data2.csv')
 df.Date = pd.to_datetime(df.Date)
 
 app = Flask(__name__)
-# CORS(app)
+CORS(app)
 
 def connect_db():
     sql = sqlite3.connect('./Details_new.db')
@@ -204,11 +204,15 @@ def home():
     return render_template('home.html')
 
 @app.route("/predict", methods = ['POST','GET'])
+@cross_origin()
 def predict():
     text = request.get_json().get("message")
     response = get_response(text)
     message = {"answer":response}
-    return jsonify(message)
+    final_message = jsonify(message)
+    final_message.headers.add("Access-Control-Allow-Origin", "*")
+    return final_message
+#     return jsonify(message)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
