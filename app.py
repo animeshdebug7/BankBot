@@ -14,7 +14,7 @@ from flask import Flask
 from flask import render_template, jsonify, request
 from threading import Thread
 import os
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import pandas as pd, numpy as np
 import logging
 import matplotlib.pyplot as plt, seaborn as sns
