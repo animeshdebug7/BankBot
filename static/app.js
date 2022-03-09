@@ -43,7 +43,7 @@ class Chatbox {
             return;
         }
 
-        let msg1 = { name: "User", message: text1 }
+        let msg1 = { name: "User", final_message: text1 }
         this.messages.push(msg1);
 //         'http://127.0.0.1:5000/predict'
 //         fetch($SCRIPT_ROOT +'/predict', {
@@ -58,7 +58,7 @@ class Chatbox {
           })
           .then(r => r.json()) 
           .then(r => {
-            let msg2 = { name: "Sam", message: r.answer };
+            let msg2 = { name: "Sam", final_message: r.answer };
             this.messages.push(msg2);
             this.updateChatText(chatbox)
             textField.value = ''
@@ -75,11 +75,11 @@ class Chatbox {
         this.messages.slice().reverse().forEach(function(item, index) {
             if (item.name === "Sam")
             {
-                html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>'
+                html += '<div class="messages__item messages__item--visitor">' + item.final_message + '</div>'
             }
             else
             {
-                html += '<div class="messages__item messages__item--operator">' + item.message + '</div>'
+                html += '<div class="messages__item messages__item--operator">' + item.final_message + '</div>'
             }
           });
 
