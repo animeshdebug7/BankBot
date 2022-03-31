@@ -209,9 +209,12 @@ def predict():
     text = request.get_json().get("message")
     response = get_response(text)
     message = {"answer":response}
-    final_message = jsonify(message)
-    final_message.headers.add("Access-Control-Allow-Origin", "*")
-    return final_message
+    return jsonify(message)
+#     response = get_response(text)
+#     message = {"answer":response}
+#     final_message = jsonify(message)
+#     final_message.headers.add("Access-Control-Allow-Origin", "*")
+#     return final_message
 #     return jsonify(message)
 
 @app.route('/login', methods=['GET', 'POST'])
