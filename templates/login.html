@@ -19,6 +19,7 @@
         {% if form.errors %}
         {{ form.errors }}
         {% endif %}
+        {{ form_rest(form) }}
 
     <a href="{{url_for('site')}}">Don't have an account? Click Here</a>
     </form>
